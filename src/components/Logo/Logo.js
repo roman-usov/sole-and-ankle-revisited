@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { WEIGHTS } from '../../constants';
+import React from "react";
+import styled from "styled-components/macro";
+import { WEIGHTS } from "../../constants";
 
 const Logo = (props) => {
   return (

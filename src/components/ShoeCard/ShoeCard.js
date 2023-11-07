@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { COLORS, WEIGHTS } from '../../constants';
-import { formatPrice, pluralize, isNewShoe } from '../../utils';
-import Spacer from '../Spacer';
+import { COLORS, WEIGHTS } from "../../constants";
+import { formatPrice, pluralize, isNewShoe } from "../../utils";
+import Spacer from "../Spacer";
 
 const ShoeCard = ({
   slug,
@@ -36,28 +36,25 @@ const ShoeCard = ({
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
-          {variant === 'on-sale' && <SaleFlag>Sale</SaleFlag>}
-          {variant === 'new-release' && (
-            <NewFlag>Just released!</NewFlag>
-          )}
+          {variant === "on-sale" && <SaleFlag>Sale</SaleFlag>}
+          {variant === "new-release" && <NewFlag>Just released!</NewFlag>}
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
           <Price
             style={{
-              '--color':
-                variant === 'on-sale' ? COLORS.gray[700] : undefined,
-              '--text-decoration':
-                variant === 'on-sale' ? 'line-through' : undefined,
+              "--color": variant === "on-sale" ? COLORS.gray[700] : undefined,
+              "--text-decoration":
+                variant === "on-sale" ? "line-through" : undefined,
             }}
           >
             {formatPrice(price)}
           </Price>
         </Row>
         <Row>
-          <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
-          {variant === 'on-sale' ? (
+          <ColorInfo>{pluralize("Color", numOfColors)}</ColorInfo>
+          {variant === "on-sale" ? (
             <SalePrice>{formatPrice(salePrice)}</SalePrice>
           ) : undefined}
         </Row>
