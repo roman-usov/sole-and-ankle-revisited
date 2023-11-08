@@ -63,9 +63,8 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
-          <Logo />
-        </Side>
+        <Logo />
+        <Side />
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -99,21 +98,27 @@ const Header = () => {
 
 const MainHeader = styled.div`
   display: flex;
-  align-items: baseline;
-  padding: 18px 32px;
+  align-items: center;
+  //padding: 25px 0;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  position: relative;
+  overflow-x: auto;
   
   @media ${QUERIES.tabletAndDown} {
     align-items: center;
     justify-content: space-between;
+    padding: 0 32px;
   }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
-  margin: 0px 48px;
+  gap: clamp(
+    1.3rem,
+    3.5vw - 1rem,
+    3rem
+  );
   
   @media ${QUERIES.tabletAndDown} {
     display: none;
@@ -122,6 +127,11 @@ const Nav = styled.nav`
 
 const Side = styled.div`
   flex: 1;
+  
+  &:first-of-type {
+    min-width: 218px;
+  }
+
 
   @media ${QUERIES.tabletAndDown} {
     &:last-of-type {
@@ -136,6 +146,7 @@ const NavLink = styled.a`
   text-decoration: none;
   color: ${COLORS.gray[900]};
   font-weight: ${WEIGHTS.medium};
+  white-space: nowrap;
 
   &:first-of-type {
     color: ${COLORS.secondary};

@@ -94,5 +94,4 @@ const FooterLink = styled.a`
   font-weight: ${WEIGHTS.normal};
 `;
 
-
 export default MobileMenu;
