@@ -99,14 +99,12 @@ const Header = () => {
 const MainHeader = styled.div`
   display: flex;
   align-items: center;
-  //padding: 25px 0;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
   position: relative;
   overflow-x: auto;
   
   @media ${QUERIES.tabletAndDown} {
-    align-items: center;
     justify-content: space-between;
     padding: 0 32px;
   }
