@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import styled from "styled-components/macro";
 
-import { COLORS, WEIGHTS, QUERIES } from "../../constants";
+import { QUERIES } from "../../constants";
 import Logo from "../Logo";
 import SuperHeader from "../SuperHeader";
 import MobileMenu from "../MobileMenu";
@@ -63,10 +63,12 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Logo />
-        <Side />
+        <Side>
+          <Logo />
+        </Side>
+        {/*<Side />*/}
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
+          <NavLink href="/sale">Sales</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
@@ -98,14 +100,16 @@ const Header = () => {
 
 const MainHeader = styled.div`
   display: flex;
-  align-items: center;
+  align-items: baseline; 
   height: 72px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--color-gray-300);
   position: relative;
   overflow-x: auto;
+  padding: 16px 32px 0; 
   
   @media ${QUERIES.tabletAndDown} {
     justify-content: space-between;
+    align-items: center;
     padding: 0 32px;
   }
 `;
@@ -130,7 +134,6 @@ const Side = styled.div`
     min-width: 218px;
   }
 
-
   @media ${QUERIES.tabletAndDown} {
     &:last-of-type {
       display: none;
@@ -142,12 +145,12 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  color: var(--color-gray-900);
+  font-weight: var(--font-weight-medium);
   white-space: nowrap;
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
