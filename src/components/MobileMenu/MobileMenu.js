@@ -13,6 +13,7 @@ const MobileMenu = ({ isOpen, title, onDismiss }) => {
       <Content aria-label={title}>
         <CloseButton onClick={onDismiss}>
           <Icon id="close" strokeWidth={2} size={24} />
+          <VisuallyHidden>Close Mobile Navigation Menu</VisuallyHidden>
         </CloseButton>
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
@@ -54,8 +55,9 @@ const Content = styled(DialogContent)`
 
 const CloseButton = styled(UnstyledButton)`
   position: absolute;
-  top: 26px;
-  right: 16px;
+  top: 10px;
+  right: 0;
+  padding: 16px;
 `;
 
 const Nav = styled.nav`

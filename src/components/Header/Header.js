@@ -7,22 +7,26 @@ import SuperHeader from "../SuperHeader";
 import MobileMenu from "../MobileMenu";
 import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon";
+import VisuallyHidden from "../VisuallyHidden";
 
 const ShoppingBagButton = () => (
   <UnstyledButton>
     <Icon id="shopping-bag" strokeWidth={2} size={24} />
+    <VisuallyHidden>Open Cart</VisuallyHidden>
   </UnstyledButton>
 );
 
 const SearchButton = () => (
   <UnstyledButton>
     <Icon id="search" strokeWidth={2} size={24} />
+    <VisuallyHidden>Perform Search</VisuallyHidden>
   </UnstyledButton>
 );
 
 const MobileMenuButton = ({ onClick }) => (
   <UnstyledButton onClick={onClick}>
     <Icon id="menu" strokeWidth={2} size={24} />
+    <VisuallyHidden>Open Mobile Navigation Menu</VisuallyHidden>
   </UnstyledButton>
 );
 
@@ -66,7 +70,6 @@ const Header = () => {
         <Side>
           <Logo />
         </Side>
-        {/*<Side />*/}
         <Nav>
           <NavLink href="/sale">Sales</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -101,25 +104,30 @@ const Header = () => {
 const MainHeader = styled.div`
   display: flex;
   align-items: baseline; 
-  height: 72px;
   border-bottom: 1px solid var(--color-gray-300);
   position: relative;
   overflow-x: auto;
-  padding: 16px 32px 0; 
+  padding: 16px 32px; 
   
   @media ${QUERIES.tabletAndDown} {
     justify-content: space-between;
     align-items: center;
-    padding: 0 32px;
+    padding: 16px 32px;
+    border-top: 4px solid var(--color-gray-900);
+  }
+  
+  @media ${QUERIES.phoneAndDown} {
+    padding-left: 0.64rem;
+    padding-right: 0.64rem;
   }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: clamp(
-    1.3rem,
-    3.5vw - 1rem,
-    3rem
+    1rem,
+    9.2vw - 4.5rem,
+    3.5rem
   );
   
   @media ${QUERIES.tabletAndDown} {
@@ -131,10 +139,14 @@ const Side = styled.div`
   flex: 1;
   
   &:first-of-type {
-    min-width: 218px;
+    min-width: 13.625rem;
   }
 
   @media ${QUERIES.tabletAndDown} {
+    &:first-of-type {
+      flex: revert;
+    }
+    
     &:last-of-type {
       display: none;
     }

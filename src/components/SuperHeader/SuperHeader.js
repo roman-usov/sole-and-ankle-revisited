@@ -13,13 +13,9 @@ const SuperHeader = () => {
       <MarketingMessage>
         Free shipping on domestic orders over $75!
       </MarketingMessage>
-      <SearchInputWrapper>
-        <SearchInput />
-      </SearchInputWrapper>
+      <SearchInput />
       <HelpLink href="/help">Help</HelpLink>
-      <ShoppingBagIcon>
-        <Icon id="shopping-bag" strokeWidth={1} />
-      </ShoppingBagIcon>
+      <Icon id="shopping-bag" strokeWidth={1} />
     </Wrapper>
   );
 };
@@ -36,17 +32,13 @@ const Wrapper = styled.div`
   padding-right: 32px;
 
   @media ${QUERIES.tabletAndDown} {
-    height: 4px;
+    display: none;
   }
 `;
 
 const MarketingMessage = styled.span`
   color: var(--color-white);
   margin-right: auto;
-  
-  @media ${QUERIES.tabletAndDown} {
-    display: none;
-  }
 `;
 
 const HelpLink = styled.a`
@@ -56,22 +48,6 @@ const HelpLink = styled.a`
 
   &:not(:focus-visible) {
     outline: none;
-  }
-
-  @media ${QUERIES.tabletAndDown} {
-    display: none;
-  }
-`;
-
-const SearchInputWrapper = styled.div`
-  @media ${QUERIES.tabletAndDown} {
-    display: none;
-  }
-`;
-
-const ShoppingBagIcon = styled(UnstyledButton)`
-  @media ${QUERIES.tabletAndDown} {
-    display: none;
   }
 `;
 
